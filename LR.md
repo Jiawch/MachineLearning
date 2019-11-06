@@ -36,7 +36,7 @@ $\omega = \omega - \alpha \frac{\partial{J(\omega)}}{\partial \omega}$
 $\frac{\partial{J(\omega)}}{\partial \omega} = \sum(\frac{xe^{\omega x}}{1+e^{\omega x}} - y_i x) = \sum (x(p_1 - y_i))$
 
 
-![](https://github.com/chenjiawei5/MachineLearning/blob/master/手推LR1.jpeg)
+![RL1](https://github.com/chenjiawei5/MachineLearning/blob/master/手推LR1.jpeg)
 
-![](https://github.com/chenjiawei5/MachineLearning/blob/master/手推LR2.jpeg)
+![RL2](https://github.com/chenjiawei5/MachineLearning/blob/master/手推LR2.jpeg)
 
