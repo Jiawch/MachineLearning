@@ -9,7 +9,9 @@ $y\in{0,1}$
 
 > sigmod 函数可以表示样本为正例的概率
 
-$P(y=1|x) = \frac{1}{1 + e^{-\omega x} }=p_1$
+$$
+P(y=1|x) = \frac{1}{1 + e^{-\omega x} }=p_1
+$$
 $P(y=0|x) =1 - P(y=1|x) = 1 - \frac{1}{1 + e^{-\omega x}} = \frac{1}{1+e^{\omega x} } = p_0$
 
 > 目标：P(y|x)，每个样本属于其真实的概率越大越好
