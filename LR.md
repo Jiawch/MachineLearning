@@ -40,3 +40,5 @@ $\frac{\partial{J(\omega)}}{\partial \omega} = \sum(\frac{xe^{\omega x}}{1+e^{\o
 
 ![RL2](https://github.com/chenjiawei5/MachineLearning/blob/master/手推LR2.jpeg)
 
+参考网站：https://blog.csdn.net/ltlitao717/article/details/75453480
+
