@@ -36,3 +36,5 @@ $\omega = \omega - \alpha \frac{\partial{J(\omega)}}{\partial \omega}$
 $\frac{\partial{J(\omega)}}{\partial \omega} = \sum(\frac{xe^{\omega x}}{1+e^{\omega x}} - y_i x) = \sum (x(p_1 - y_i))$
 
 
+
+
