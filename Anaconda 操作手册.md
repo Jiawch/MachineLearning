@@ -1,5 +1,33 @@
 # Anaconda 操作手册
 
+## Miniconda
+[安装教程](https://zhuanlan.zhihu.com/p/63897033)  
+Anaconda之外还有一个精简版, 不需要图形的环境时简直不要太配
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  
+sudo chmod 777 Miniconda3-latest-Linux-x86_64.sh    
+./Miniconda3-latest-Linux-x86_64.sh  
+```
+
+最终会默认安装在 ```/home/t-jiawch/miniconda3```
+
+可能需要  
+```
+chmod 777 ~/miniconda3/  
+chmod 777 ~/.conda/  
+```
+
+## 环境配置
+
+```bash
+conda create -n py36 python=3.6  
+conda activate py36  
+conda deactivate 用以退出环境  
+```
+
+注：环境会建在 ```~/.conda/envs/py36```
+
 ## 设置源
 
 ```python
