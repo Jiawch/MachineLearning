@@ -11,6 +11,7 @@ O(i,j) = \sum_{m=-1}^{1} \sum_{n=-1}^{1} I(i-m,j-n) K(m,n)
 $$
 
 # [CNN 感受野计算](https://www.jianshu.com/p/e875117e5372)
+[2](https://zhuanlan.zhihu.com/p/43784441)
 
 $$
 l_{k} = l_{k-1}+ \left [ (f_{k}-1)*\prod_{i=1}^{k-1}s_{i} \right ]
