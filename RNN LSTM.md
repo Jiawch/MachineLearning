@@ -12,3 +12,5 @@
 
 参考：https://www.jianshu.com/p/9dc9f41f0b29
 
+
+# [RNN](https://zhuanlan.zhihu.com/p/28919765)
