@@ -80,3 +80,10 @@ conda info -e
 ## PermissionError(13, 'Permission denied')
 
 	sudo chown -R jawei:jawei /opt/anaconda3
+
+## 解决加sudo自动改变为系统默认python版本问题
+
+使用root权限在/usr/bin路径下，建立软链接，即可在root用户下使用当前账户新建环境  
+```bash
+ln -s /home/jiawei/anaconda3/bin/python /usr/bin/python36
+```
