@@ -275,8 +275,8 @@ class Batch:
         self.src = src
         self.src_mask = (src != pad).unsequeeze(-2)  # (B, 1, 10)
         if tgt is not None:
-            self.tgt = tgt[;, :-1]  # (B, 10-1), 可以认为，第0列是 BOS, 一般用0,1等
-            self.tgt_y = tgt[:, 1:] # (B, 10-1)
+            self.tgt = tgt[;, :-1]  # (B, 10-1)
+            self.tgt_y = tgt[:, 1:] # (B, 1)
             self.tgtg_mask = self.make_std_mask(self.tgt, pad)
             self.ntokens = (self.tgt_y != pad).data.sum()
             
@@ -295,9 +295,40 @@ class Batch:
         # tgt_mask，原来mask就这么简单，下面这个就说明最后一个是padding的
         # [[1, 0, 0, 0, 0],
         #  [1, 1, 0, 0, 0],
-        #  [1, 1, 1, 0, 0],
+        #  [1, 1, 0, 0, 0],
         #  [1, 1, 1, 1, 0],
         #  [0, 0, 0, 0, 0]]
+
+        """
+        a = tensor([[1, 1, 1, 1, 0],
+                    [1, 1, 1, 1, 1],
+                    [0, 0, 0, 0, 0]])  # (B, T)
+        b = tensor([[1, 0, 0, 0, 0],
+                    [1, 1, 0, 0, 0],
+                    [1, 1, 1, 0, 0],
+                    [1, 1, 1, 1, 0],
+                    [1, 1, 1, 1, 1]])  # (T, T)
+        a_ = a.unsqueeze(-2)           # (B, 1, T)
+        b_ = b.unsqueeze(0)            # (B, T, T)
+
+        a_ & b_ = tensor([[[1, 0, 0, 0, 0],
+                         [1, 1, 0, 0, 0],
+                         [1, 1, 1, 0, 0],
+                         [1, 1, 1, 1, 0],
+                         [1, 1, 1, 1, 0]],
+
+                        [[1, 0, 0, 0, 0],
+                         [1, 1, 0, 0, 0],
+                         [1, 1, 1, 0, 0],
+                         [1, 1, 1, 1, 0],
+                         [1, 1, 1, 1, 1]],
+
+                        [[0, 0, 0, 0, 0],
+                         [0, 0, 0, 0, 0],
+                         [0, 0, 0, 0, 0],
+                         [0, 0, 0, 0, 0],
+                         [0, 0, 0, 0, 0]]])
+        """
 
 
 
@@ -312,7 +343,7 @@ def data_gen(V=11, batch=30, nbatches=20):
         tgt = Variable(data, requires_grad=False)
         yield Batch(src, tgt, 0)
         # 返回 src 还是 src (B, Li)
-        # tgt (B, Lo) 被分成2, 1是tgt=原tgt[:,:-1] (B, Lo-1), 2是tgt_y=原tgt[:,-1:] (B, Lo-1)
+        # tgt (B, Lo) 被分成2, 1是tgt=原tgt[:,:-1] (B, Lo-1), 2是tgt_y=原tgt[:,-1:] (B, 1)
         # 以及返回 src_mask (B, 1, Li), tgt_mask (B, Lo-1, Lo-1)
 
 
