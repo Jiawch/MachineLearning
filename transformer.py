@@ -312,7 +312,7 @@ def data_gen(V=11, batch=30, nbatches=20):
         tgt = Variable(data, requires_grad=False)
         yield Batch(src, tgt, 0)
         # 返回 src 还是 src (B, Li)
-        # tgt (B, Lo) 被分成2, 1是tgt=原tgt[:,:-1] (B, Lo-1), 2是tgt_y=原tgt[:,-1:] (B, 1)
+        # tgt (B, Lo) 被分成2, 1是tgt=原tgt[:,:-1] (B, Lo-1), 2是tgt_y=原tgt[:,-1:] (B, Lo-1)
         # 以及返回 src_mask (B, 1, Li), tgt_mask (B, Lo-1, Lo-1)
 
 
