@@ -117,7 +117,7 @@ class EncoderLayer(nn.module):
 def attention(query, key, value, mask=None, dropout=None):
         """
         q,k,v: (B, head, T, d_k)
-        mask: (B, 1, 1, Tk)
+        mask: (B, 1, 1, Tk) or (B, 1, T, T)
 
         Compute `Scale Dot-Product Attention`.
         
