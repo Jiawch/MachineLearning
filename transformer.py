@@ -275,8 +275,8 @@ class Batch:
         self.src = src
         self.src_mask = (src != pad).unsequeeze(-2)  # (B, 1, 10)
         if tgt is not None:
-            self.tgt = tgt[;, :-1]  # (B, 10-1)
-            self.tgt_y = tgt[:, 1:] # (B, 1)
+            self.tgt = tgt[;, :-1]  # (B, 10-1), 可以认为，第0列是 BOS, 一般用0,1等
+            self.tgt_y = tgt[:, 1:] # (B, 10-1)
             self.tgtg_mask = self.make_std_mask(self.tgt, pad)
             self.ntokens = (self.tgt_y != pad).data.sum()
             
