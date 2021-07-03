@@ -25,3 +25,7 @@ $$
 记k为kernel_size，d为dilation_rate，ri为第i层的感受野  
 r1 = d*(k - 1) + 1  
 rn = d*(k - 1) + rn-1  
+
+
+overall, 
+RF(t) = RF(t-1) + (kernel-1) * stride * dilation
