@@ -28,5 +28,7 @@ rn = d*(k - 1) + rn-1
 
 
 overall, 
+```python
 RF(t) = RF(t-1) + (kernel-1) * stride * dilation  
 RF = ((kerner-1) * sum(Dilation)) + 1
+```
